@@ -54,7 +54,18 @@ ProjectApp::Application.configure do
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
-
+ config.action_mailer.default_url_options = { :host => 'http://rftechbud09.heroku.com' }
+  
+  
+  config.action_mailer.delivery_method=:smtp
+ActionMailer::Base.smtp_settings = {
+ :address              => "smtp.gmail.com",
+ :port                 => 587,
+ :authentication       => "plain",
+ :user_name            =>"sathish.subramanian@railsfactory.org",
+ :password             =>"9003375353",
+ :enable_starttls_auto => true
+}
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 end
