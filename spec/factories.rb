@@ -1,6 +1,6 @@
 include ActionDispatch::TestProcess
 
-Factory.define :create_ticket do |a|
+Factory.define :ticket do |a|
 	a.user_id 1
 	a.department_id 2
 	a.description "This is my first Ticket"
