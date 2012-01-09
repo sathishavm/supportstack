@@ -9,6 +9,7 @@ gem 'mysql'
 gem 'mail'
 gem "capybara"
 gem 'rspec'
+gem "pg"
 gem 'rspec-rails'
 gem "shoulda"
 gem 'therubyracer'
