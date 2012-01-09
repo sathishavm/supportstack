@@ -1,0 +1,69 @@
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+		
+					<div id="posts">
+							<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+
+  <% end %>
+	</div>
+						<h2>Admin-Ticket Details.</h2> 
+						
+                    
+ <h1 id="t1">                       
+The following are the details about the ticket details in Stack Support application,You can also modify all the Ticket details.</h1><br>
+					  <div id="m2">
+						
+<center>
+<table>
+<tr>
+<th>#</th>
+<th>Status</th>
+<th>No of Tickets</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+Open Tickets&nbsp;&nbsp;&nbsp;</td>
+<td><%= @openticket%></td></tr>
+<tr>
+<td>2</td>
+<td>Pending Tickets</td>
+<td><%= @pendingticket%><br></td></tr>
+<tr>
+<td>3</td>
+<td>Completed Tickets</td>
+<td><%= @completedticket%><br></td></tr>
+	</table>
+
+</center>
+
+
+
+							
+							</div>
+						
+					</div>
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+			
+					
+					<%= render :partial=>"/ticket/ticket"%>
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+
+
+ 

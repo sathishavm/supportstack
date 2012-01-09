@@ -1,0 +1,92 @@
+
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+					<div id="posts">
+								<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% end %>
+	</div>
+						<h2>Create Ticket.</h2> 
+                    
+ <h1 id="t1">                       
+Please enter the following Ticket details,to create a new Ticket in your Support Stack application.</h1><br>
+					  <div id="m2">
+						
+<center><%= form_for :ticket, :url=>{:action=>'create'},:html => { :multipart => true }  do |f|%>
+<table align="center">
+<tr>
+<th>
+Column
+</th>
+<th>
+<center>Ticket Details</center>
+</th>
+</tr>
+<tr>
+<td>
+To&nbsp;&nbsp;&nbsp;</td>
+<td><%= f.select(:department_id, department_for_select) %><br><%=@error[:department_id] if @error && @error[:department_id]%></td></tr>
+<tr>
+<td>Category</td>
+<td><%= f.select(:category,[["Product","Product"],["Shipping","Shipping"],["Order & Delivery","Order-Delivery"]]) %><br><%=@error[:category] if @error && @error[:category]%></td></tr>
+<tr>
+<td>Priority</td>
+<td><%= f.select(:priority, [["Low","Low"],["Medium","Medium"],["High","High"],["Emergency","Emergency"],["Critical","Critical"]]) %><br><%=@error[:priority] if @error && @error[:priority]%></td></tr>
+<tr>
+<td>Subject</td>
+<td><%= f.text_field :subject %><br><%=@error[:subject] if @error && @error[:subject]%></td></tr>
+<tr>
+<td>Description</td>
+<td><%= f.text_area :description %><br><%=@error[:description] if @error && @error[:description]%></td></tr>
+<%= fields_for :attachment do |fm| %>
+<tr><td>Attachement</td>
+<td><%= fm.file_field :avatar %></td></tr>
+<br><br>
+<% end %>
+<tr><td></td><td><center><%=f.submit%></center></td></tr></table>
+
+<%end%>
+</center>
+
+
+
+							
+							</div>
+						
+					</div>
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+			<%= render :partial=>"/ticket/ticket"%>
+					
+					
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+

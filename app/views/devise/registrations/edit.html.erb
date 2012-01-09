@@ -1,0 +1,85 @@
+<div id="content">
+			<div id="wrapper">
+				<div id="main1">
+		
+					<div id="posts">
+							<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+
+  <% end %>
+	</div>
+						<h5>Change Password.</h5> 
+						
+                    
+ <h1 id="t1">                       
+The Following is to change your current password,you can change your password only by entering the current password.</h1><br>
+					  <div id="m2">
+            <div id="hh">
+						
+<center>
+
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <%= f.password_field :current_password %></div>
+
+  <div><%= f.submit "Update" %></div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+
+<%= link_to "Back", :back %>
+
+
+
+
+</center>
+
+</div>
+
+							
+							</div>
+						
+					</div>
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+			
+					<%if resource.role_id==1%>
+					<%= render :partial=>"/dashboard/dashboard"%>
+					<%end%>
+						<%if resource.role_id==2%>
+					<%= render :partial=>"/staffview/staff"%>
+					<%end%>
+						<%if resource.role_id==3%>
+					<%= render :partial=>"/clientview/client"%>
+					<%end%>
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+
+
+ 

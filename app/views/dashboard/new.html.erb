@@ -1,0 +1,79 @@
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+					<div id="posts">
+					<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% end %>
+	</div>
+						<h2>Admin-My Account.</h2> 
+                    
+ <h1 id="t1">                       
+The following are your are the overall details about our company,you can make the status updated.</h1><br>
+					  <div id="m3">
+						 <div id="posts1">
+						 <br>
+<h1 id="j1">
+Staff</h1>
+Total No of Staff -: &nbsp; &nbsp; &nbsp; &nbsp;  <%=@staff%>
+<br>
+<br>
+<br>
+</div>
+			 <div id="posts1">
+						 <br>
+<h1 id="j1">
+Client</h1>
+Total No of Client -:   &nbsp; &nbsp; &nbsp;<%=@client%>
+<br>
+<br>
+<br>
+</div>
+							</div>
+										  <div id="m3">
+						 <div id="posts1">
+						 <br>
+<h1 id="j1">
+Ticket</h1>
+Total No of New Tickets -:  &nbsp; &nbsp; &nbsp;  <%=@openticket%>
+<br>
+<br>
+<br>
+</div>
+			 <div id="posts1">
+						 <br>
+<h1 id="j1">
+Ticket</h1>
+Total No of Pending Tickets -:  &nbsp; &nbsp; &nbsp;   <%=@pendingticket%>
+<br>
+<br>
+<br>
+</div>
+
+									</div>
+				
+					 <div id="m1">&nbsp;<br><br></div>
+					</div>
+					
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+			
+						<%= render :partial=>"/dashboard/dashboard"%>
+					
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+
+
+ 

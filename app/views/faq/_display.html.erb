@@ -1,0 +1,21 @@
+<center>
+Frequently asked Question and Comments.
+			<table align="center">
+			<%@view.each do |q|%>
+			<tr><th>Questions</th><th>Comments</th>
+			
+			<% if(current_user && (current_user.id==1))%>
+<th></th>
+<% end %>
+			</tr>
+<tr>
+<td width="350px"><%=q.question%></td>
+<td><%= link_to "View comments" ,  "/faq/comments/#{q.id}",:method=>'comments' %></td>
+<% if(current_user && (current_user.id==1))%>
+<td><%= link_to "Delete" , "/faq/destroy1/#{q.id}",:remote => true, :method=>'delete' %></td>
+<% end %>
+</tr>
+<%end%>
+</table>
+<%= will_paginate @view %>
+</center>

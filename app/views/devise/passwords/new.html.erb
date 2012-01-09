@@ -1,0 +1,59 @@
+<div id="content">
+			<div id="wrapper">
+				<div id="main1">
+		
+					<div id="posts">
+							<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+
+  <% end %>
+	</div>
+						<h5>Forgot Password.</h5> 
+						
+                    
+ <h1 id="t1">                       
+The Following is to recover your old password,you can recover the password by entering your Email-ID.</h1><br>
+					  <div id="m2">
+            <div id="hh">
+						
+<center>
+<h2>Forgot your password?</h2>
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.submit "Send me reset password instructions" %></div>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>
+
+
+
+
+</center>
+
+</div>
+
+							
+							</div>
+						
+					</div>
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+			
+					
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+

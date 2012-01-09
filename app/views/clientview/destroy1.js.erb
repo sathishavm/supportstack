@@ -1,0 +1,1 @@
+$("#comment1").html("<%= escape_javascript(render(:partial =>"clientcomment",:locals=>{:comments=>@comments,:user=>@user,:ticketall=>@ticketall})) %>");

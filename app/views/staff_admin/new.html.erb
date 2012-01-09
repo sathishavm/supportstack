@@ -1,0 +1,78 @@
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+					<div id="posts">
+					<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+
+  <% end %>
+	</div>
+						<h2>Insert Staff.</h2> 
+                    
+ <h1 id="t1">                       
+Please enter the following Staff details, To create a new Staff in your Support Stack application.</h1><br>
+					  <div id="m2">
+						
+<center><%= form_for @user, :url=>{:action=>'create'} do |m|%>
+<table align="center">
+<tr>
+<th>Column</th>
+<th>Staff Details</th>
+</tr>
+<tr>
+<td>
+Full name&nbsp;&nbsp;&nbsp;</td>
+<td><%=m.text_field:fullname%><br><%=@error[:fullname] if @error && @error[:fullname]%></td></tr>
+<tr>
+<td>username</td>
+<td><%=m.text_field:username%><br><%=@error[:username] if @error && @error[:username]%></td></tr>
+
+<tr>
+<td>Email</td>
+<td><%=m.email_field:email%><br><%=@error[:email] if @error && @error[:email]%></td></tr>
+<td>Phone</td>
+<td><%=m.text_field:phone%><br></td></tr>
+<td>Mobile</td>
+<td><%=m.text_field:mobile%></td></tr>
+
+<%=fields_for @staff do |f|%>
+
+<tr>
+<td>Ticket notifier</td>
+<td><%=f.check_box :ticket_notifier%>receice mail alert</td></tr>
+<tr>
+<td>Priveleges</td>
+<td><%=f.check_box :priveleges%>admin privelege</td></tr>
+<tr>
+<td>Department</td>
+<td><%= f.select(:department_id, department_for_select) %></td></tr>
+
+<tr>
+<td></td>
+<td>
+<%=m.submit "Save "%>
+</td></tr>
+</table>
+<%end%>
+<%end%>
+</center>
+							
+							</div>
+						
+					</div>
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+			
+					<%= render :partial=>"/staff_admin/staff"%>
+					
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+

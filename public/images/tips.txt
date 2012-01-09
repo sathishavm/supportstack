@@ -1,0 +1,17 @@
+<img src="images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+
+
+
+
+
+#sidebar{
+float:left;
+width:255px;
+padding:35px 0 0 41px;
+color:#97A7B7;
+}
+#sidebar .quote{
+position:absolute;
+top:345px;
+left:670px;
+}

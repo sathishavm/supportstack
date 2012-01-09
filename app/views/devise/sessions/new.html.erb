@@ -1,0 +1,117 @@
+
+
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+					<div id="posts">
+						<h2>Welcome to Support Stack.</h2> 
+                        <p>Our goal is to provide you with support services that protect and enhance your investment in our technology. To meet your unique support needs, Support Stack has a variety of support options available.</p>
+ <h1 id="t1">                       
+Please select your type from the options below to learn more about the support options available to you and how to contact us.</h1><br>
+					  <div id="m1">
+						<div class="post">
+							<h1 id="p1">Client Area</h1>
+							
+							<h3 id="a1">Click here to edit  your details, and other additional services. </h3>
+							<a href="javascript: client()" class="more">Continue reading</a>
+				
+						</div>
+						<div class="post">
+							<h1 id="p2">Browse Knowledgebase</h1>
+							
+							<h3 id="a1">View listing of all frequently asked questions.</h3>
+							<a href="javascript: knowledge()" class="more">Continue reading</a>
+	
+						</div></div>
+						<div id="pager"></div>
+						<div id="m1">
+						
+						<div class="post">
+						
+							<h1 id="p6">Ticket History</h1>
+							
+							<h3 id="a1">The History of all the tickets showing the status....</h3>
+							<a href="javascript: ticket()" class="more">Continue reading</a>
+
+						</div>
+						<div class="post">
+					
+							<h1 id="p4">Contact Support</h1>
+							
+							<h3 id="a1">How can you Contact us for different issues.</h3>
+							<a href="javascript: contact()" class="more">Continue reading</a>
+							
+						</div></div>
+						<div id="pager"></div>
+						<div id="m1">
+						
+						<div class="post">
+						
+							<h1 id="p5">Submit Ticket</h1>
+							<h3 id="a1">Any problems...please create a ticket and let us know.</h3>
+							<a href="javascript: submit()" class="more">Continue reading</a>
+							
+						</div>
+						<div class="post">
+						
+							<h1 id="p3">News</h1>
+							
+							<h3 id="a1">View latest announcements and news in Projects.</h3>
+							<a href="javascript: news()" class="more">Continue reading</a>
+							
+						</div></div>
+						<div class="inner_copy"><a href="http://www.bestfreetemplates.org/">free templates</a><a href="http://www.bannermoz.com/">banner templates</a></div>
+						<div id="pager">
+							
+						</div>
+					</div>
+				</div>
+				<div id="sidebar">
+					<img src="/images/sidebar_top.jpg" alt="setalpm" width="333" height="325" class="quote" /><br />
+			
+					<div class="about">
+						<h1>ACCOUNT-SIGN IN</h1>
+						<br>
+						<br>
+				
+						
+            <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <%= f.label :email %><br />
+  <%= f.email_field :email,:size=>13 %><br><br>
+
+  <%= f.label :password %><br />
+  <%= f.password_field :password,:size=>13 %><br><br>
+
+  <% if devise_mapping.rememberable? -%>
+    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+  <% end -%>
+
+  <center><%= f.submit "Sign in" %></center>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>
+            
+						
+					</div>
+					
+					<h1>News</h1>
+					<ul id="categories">
+					<marquee onmouseout="this.start();" scrollamount="2" onmouseover="this.stop();" direction="up">
+						<%@newsdetails=(News.find(:all,:limit=>6,:order=>"created_at desc"))%>
+					<%@newsdetails.each do |q|%>
+						<li><a href="javascript: ss('/news/show/<%= q.id%>')"><%=q.subject%>..</a></li><br>
+						<%end%>
+						
+						</marquee>
+					</ul>
+					<center><h2>Frequently asked Question</h2><br>
+					<a href="/faq/new"><img src="/images/c.gif" alt="" width="90" height="90" /></a><center>
+					<br><br>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+

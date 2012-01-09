@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+<title>Stack support</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+
+
+
+
+
+
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="site">
+		<div id="header">																																																																																																			<div class="inner_copy"><a href=""></a><a href=""></a></div>
+			<ul id="menu">
+			<li class="home"><a href="/staffview/dashboard">Home</a></li>
+				<li><a href="/staffview/staffview">Tickets</a></li>
+				
+                
+                <li><a href="/faq/help">Help</a></li>
+			
+			</ul>
+		
+			<div class="social">
+				<a href="https://twitter.com/share"><img src="/images/icon1.jpg" alt="" width="49" height="49" /></a><a href="https://www.facebook.com/pages/Support-Stack-Case-Study/290403327673612?sk=info"><img src="/images/icon2.jpg" alt="" width="49" height="49" /></a><a href="http://www.linkedin.com/company/support-stack-for-rails"><img src="/images/icon3.jpg" alt="" width="49" height="49" /></a>
+			</div>
+			<a href="/users/sign_in" class="logo"><img src="/images/logo.jpg" alt="Travel Blog" width="219" height="81" /></a>
+			<p class="slogan"><img src="/images/title.jpg" alt="" width="474" height="64" /></p>
+		</div>
+
+
+<%= yield %>
+
+<div id="footer">
+			<div id="bottom_menu">
+				<ul>
+					<li><a href="/dashboard/new">Home</a></li>
+					<li>|<a href="/ticket/dashboard">Ticket</a></li>
+					<li>|<a href="/department/dashboard">Department</a></li>
+				</ul>
+			</div>
+			<div class="copyright">
+				Copyright &copy; All rights reserved by <a href="" target="_blank" title="Support Stack">Support Stack</a>
+			</div>
+		</div>
+	</div>
+  
+  
+  
+</body>
+</html>

@@ -1,0 +1,66 @@
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+					<div id="posts">
+					<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% end %>
+	</div>
+						<h2>Comments for Questions.</h2> 
+                    
+ <h1 id="t1">                       
+The following are the comments for particular questions,where u can post your comments too.</h1><br>
+
+					  <div id="m2">
+						
+<center>
+<h3>Question</h3>
+<table border="9">
+<tr>
+<td width="400px"><%=@question%><br></td>
+</tr></table><br><br><br>
+<h4>Post Your Comments</h4>
+<table><tr>
+<%= form_for @faq,:remote => true, :url=>{:action=>'save',:id=>"#{@allquestion.id}"} do |f|%>
+<th>Comment</th>
+<th>post</th></tr>
+<tr>
+<td><%=f.text_area:comment,:rows=>3.5, :cols=>50%><%=@error[:comment] if @error && @error[:comment]%></td>
+<td><%=f.submit "post"%></tr></td></table>
+<%end%>
+</center>
+<br><br><br>
+<div id="comment">
+							<%=render :partial => "faq/dcomment", :locals => { :view => @view }%>
+							</div>
+<br><br><br>		
+
+<center>
+<%= link_to "Back" ,  "/faq/new/" %><br><br>
+</center>
+							
+							</div>
+						
+					</div>
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+			<%= render :partial=>"/faq/show"%>
+					
+					
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+
+
+ 

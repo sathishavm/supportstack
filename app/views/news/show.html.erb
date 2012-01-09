@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>News Details</title>
+<style>
+#last
+{
+background-image:url(/images/news.jpg);
+width:1024px;
+height:768px;
+}
+#main
+{
+padding:0px 15px 30px 30px;
+
+}
+#subject
+{
+color:black;
+font-weight: bolder;
+font-size:18px;
+}
+#subject1
+{
+
+color:blue;
+font-weight: 200px;
+}
+#cont
+{
+color:orange;
+
+}
+#s
+{
+color:blue;
+}
+#s2
+{
+padding:0px 30px 30px 30px;
+float:right;
+}
+</style>
+</head>
+<body>
+<div id="last">
+<center><img src="/images/news1.jpg" alt="" width="400" height="250" /></center><br>
+<div id="main">
+<table>
+<tr>
+<td><p id="subject">Subject :</p></td><td ><p id="subject1"><%=@newsdetails.subject%></p></td></tr>
+</table><br>
+<table><tr><td>Place :</td><td><p id="cont"><%= @newsdetails.place%></p></td></tr></table>
+
+<div id="s2"><table><tr><td>Event Date: &nbsp;</td><td><p id="cont"><p id="cont"><%= (@newsdetails.date).strftime("%d-%m-%y")%></p></p></td></tr></table></div><br>
+<h2>Description</h2>
+<blockquote></blockquote><p id="s"><%=@newsdetails.description%>.</p>
+<center><h6>Thank you all.</h6></center>
+</div>
+</div>
+</body>
+</html>

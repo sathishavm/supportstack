@@ -1,0 +1,125 @@
+
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+					<div id="posts">
+					<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% end %>
+	</div>
+						<h2>Tickets Details.</h2> 
+                    
+ <h1 id="t1">                       
+The following details about particular Tickets,To assign the ticket to particular staff you can submit assign.</h1><br>
+					  <div id="m2">
+						
+<center><%= form_for @ticket_detail, :url=>{:action=>'save',:id=>"#{@ticket_detail.id}"} do |f|%>
+<table align="center">
+<tr>
+<th>Column</th>
+<th>Value</th>
+</tr>
+<tr>
+<td>
+ID:&nbsp;&nbsp;&nbsp;</td>
+<td><%=@ticket_detail.id %></td></tr>
+<tr>
+<td>
+
+Client:&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+<% @user.each do |m|%>
+<% if m.id==@ticket_detail.submitedby%>
+<td><%=m.fullname %></td>
+<%end%>
+<%end%>
+</tr>
+<tr>
+<td>Status</td>
+<td><%=@ticket_detail.status %></td></tr>
+<tr>
+<td>Date</td>
+<td><%=@ticket_detail.created_at%></td>
+</tr>
+<tr>
+<td>Priority</td>
+<td><%=@ticket_detail.priority%></td></tr>
+<tr>
+<tr>
+<td>Department</td>
+<td><%=@ticket_detail.department.name%><br></td></tr>
+<tr>
+</table><br><br></center>
+
+<%if !((@ticket_detail.attachment.avatar_file_name).nil?)%>
+
+Ticket Attach: <%=link_to "#{@ticket_detail.attachment.avatar_file_name}","/ticket/download_attachment/#{@ticket_detail.id}"%><br>
+
+
+<div><br><br></div>
+<% end %>
+<div id="k1">
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Subject</b> &nbsp; -   &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;  <%=@ticket_detail.subject%></div>
+<div id="cc">
+<h3>Description:</h3>
+ <p><%=@ticket_detail.description%></p>
+</div>
+<div><br><br><br><br><br><br>
+</div>
+<center>
+<table>
+<tr>
+<th>
+Assign Ticket To Staff:
+</th>
+</tr>
+<tr>
+<td>
+<br>
+Staff:
+</td>
+<td>
+<br>
+<%= f.select(:user_id, @ticketassign.all.collect { |m| [m.user.fullname,m.user.id] }) %>
+</td>
+</tr>
+</table>
+<br>
+<br>
+<%=f.submit "Assign Ticket"%>
+
+
+
+<%end%>
+
+</center>
+
+							
+							</div>
+						
+					</div>
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+			<%= render :partial=>"/ticket/ticket"%>
+					
+					
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+
+
+ 

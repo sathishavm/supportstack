@@ -1,0 +1,89 @@
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+					<div id="posts">
+					<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% end %>
+	</div>
+						<h2>Manage Your Departments.</h2> 
+                    
+ <h1 id="t1">                       
+The following is all about the department details which are available in your Stack Support application, Where you can perform Edit or Delete operation on them.</h1><br>
+					  <div id="m2">
+						  <% if(@ticket.empty?)%>
+				<center><h1>	 oops! No Record Found</h1></center>
+				<%else%>
+						<table border="0" >
+						<tr>
+						<th id="k1">#</th>
+						<th id="k1">ID</th>
+						<th id="k1">Date</th>
+						<th id="k1"><center>Name</center></th>
+						<th id="k1"><center>Email</center></th>
+						<th id="k1">Phone Number</th>
+						<th id="k1">Action</th>
+						<th id="k1">Action</th>
+						</tr>
+						<%@a=1%>
+
+<% @ticket.each do |f|%>
+<%if @a%2==0 %>
+<tr>
+<td  id="k2"><%= @a%></td>
+<td id="k2"><%= f.id%></td>
+<td id="k2"><%= (f.created_at).strftime("%d-%m-%y")%></td>
+<td id="k21"><div id="k21"><%= f.name%></td></div></td>
+<td id="k22"><div id="k22"><%= link_to "#{f.email_id}" ,  "/department/show/#{f.id}",:method=>'show' %></div></td>
+<td id="k2"><%= f.phone_number%></td>
+<td id="k2"><%= link_to "Edit" ,  "/department/edit/#{f.id}",:method=>'edit' %></td>
+<td id="k2"><%= link_to "Delete" ,  "/department/destroy/#{f.id}",:method=>'delete' %></td>
+</tr>
+<%else%>
+
+<tr>
+<td id="o1"><%= @a%></td>
+<td id="o1"><%= f.id%></td>
+<td id="o1"><%= (f.created_at).strftime("%d-%m-%y")%></td>
+<td id="o11"><div id="o11"><%= f.name%></div></td>
+<td id="o12"><div id="o12"><%= link_to "#{f.email_id}" ,  "/department/show/#{f.id}",:method=>'show' %></div></td>
+<td id="o1"><%= f.phone_number%></td>
+<td id="o1"><%= link_to "Edit" ,  "/department/edit/#{f.id}",:method=>'edit' %></td>
+<td id="o1"><%= link_to "Delete" ,  "/department/destroy/#{f.id}",:method=>'delete' %></td>
+</tr>
+<%end%>
+
+
+
+<%@a=@a+1%>
+<%end%>
+
+</table>
+
+<%= will_paginate @ticket %>
+
+							<%end%>
+							</div>
+						
+					</div>
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+				<%= render :partial=>"/department/department"%>
+					
+					
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+
+ 

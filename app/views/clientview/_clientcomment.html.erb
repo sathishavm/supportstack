@@ -1,0 +1,33 @@
+	  Conversation:
+    <% if(@comments.empty?)%>
+				<center><h1>	 oops! No Record Found</h1></center>
+				<%else%>
+
+<br><br>
+<%@comments.each do |r|%> 
+<div id="d1">
+&nbsp;&nbsp;&nbsp;&nbsp;Author&nbsp; </div>
+<div id="d2"> <center>Content</center></div>
+
+<div id="c1">
+<% @user.each do |m|%>
+<% if m.id==r.user_id%>
+<%=m.fullname%>
+<%end%>
+<%end%><br><br>
+<%=r.title%><br><br>
+<%if (current_user.id==r.user_id)%>
+<%= link_to "Delete" ,"/clientview/destroy1/#{r.id}",:remote => true,:method=>'DELETE' %>
+<%end%>
+</div>
+
+<div id="c2">
+ <p><%=r.comment%></p>
+</div>
+<%end%>
+<%= will_paginate @comments %>
+<div><br><br><br><br><br>
+
+<br><br>
+</div>
+<%end%>

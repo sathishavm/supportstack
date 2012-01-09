@@ -1,0 +1,126 @@
+
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+					<div id="posts">
+					<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% end %>
+	</div>
+						<h2>Client -Particular Tickets Details.</h2> 
+                    
+ <h1 id="t1">                       
+The following details are about particular Ticket,That is posted by you in the Support Stack application.</h1><br>
+					  <div id="m2">
+						
+<center>
+<table align="center">
+<tr>
+						<th>Column</th>
+						<th>Detailed View</th>
+						</tr>
+<tr>
+<td>
+ID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><%=@ticketall.id %></td></tr>
+<tr>
+<td>Date</td>
+<td><%=(@ticketall.created_at).strftime("%d-%m-%y")%></td>
+</tr>
+<tr>
+<td>Priority</td>
+<td><%=@ticketall.priority%><br></td></tr>
+<tr>
+<tr>
+<td>Department</td>
+<td><%=@ticketall.department.name%><br></td></tr>
+<tr>
+</table><br></center>
+<%if !((@ticketall.attachment.avatar_file_name).nil?) %>
+Ticket Attach: <%=link_to "#{@ticketall.attachment.avatar_file_name}","/clientview/download_attachment/#{@ticketall.id}"%><br>
+<div><br><br></div>
+<%end%>
+<div id="k1">
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Subject</b> &nbsp; -   &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;  <%=@ticketall.subject%></div>
+<div id="cc">
+<h3>Description:</h3>
+ <p><%=@ticketall.description%></p>
+</div>
+<div><br><br><br><br><br><br>
+</div>
+<%= form_for @ticketall, :url=>{:action=>'update1',:id=>"#{@ticketall.id}"} do |f|%>
+<center>
+<table>
+<tr>
+<th>Status</th>
+<td><%= f.select(:status, [["open","open"],["completed","completed"]]) %>
+</td>
+<th>Priority</th>
+<td><%= f.select(:priority, [["Low","Low"],["Medium","Medium"],["High","High"],["Emergency","Emergency"],["Critical","Critical"]]) %><br></td></tr>
+</tr>
+
+</table>
+<%=f.submit"Update"%><br><br>
+</center>
+<%end%>
+
+<div id="comment1">
+<%=render :partial => "clientview/clientcomment", :locals => { :comments => @comments }%>
+</div>
+
+<br>
+Post Your Comment Here:
+<br>
+<%= form_for @comment1,:remote => true, :url=>{:action=>'update',:id=>"#{@ticketall.id}"} do |s|%>
+<div id="d1">
+&nbsp;&nbsp;&nbsp;&nbsp;Author&nbsp; </div>
+<div id="d2"> <center>Content</center></div>
+
+<div id="c1">
+<% @user.each do |m|%>
+<% if m.id==@ticketall.submitedby%>
+<td><%=m.fullname %></td>
+<%end%>
+<%end%><br><br>
+Client
+</div>
+
+<div id="c2">
+ <%=s.text_area:comment ,:rows=>3.5, :cols=>50%>
+ <center><%=@error[:comment] if @error && @error[:comment]%>
+ <%=s.submit"comment"%></center>
+</div>
+<div><br><br><br><br><br>
+<br><br>
+</div>
+<%end%>
+
+
+							
+							</div>
+						
+					</div>
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+			<%= render :partial=>"/clientview/ticket"%>
+					
+					
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+
+
+ 

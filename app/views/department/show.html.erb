@@ -1,0 +1,68 @@
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+					<div id="posts">
+					<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% end %>
+	</div>
+						<h2>show Department.</h2> 
+                    
+ <h1 id="t1">                       
+The enter the following department details,are those which are already available department in your application.</h1><br>
+					  <div id="m2">
+						
+<center><%= form_for @depart, :url=>{} do |f|%>
+<table align="center">
+<tr>
+<th>Column</th>
+<th>Department Details</th>
+</tr>
+<tr>
+<td>
+Department Name&nbsp;&nbsp;&nbsp;</td>
+<td><%=@depart.name%></td></tr>
+<tr>
+<td>Description</td>
+<td><%=@depart.description%><br><%=@error[:name] if @error && @error[:name]%></td></tr>
+<tr>
+<td>Email</td>
+<td><%=@depart.email_id%><br></td></tr>
+<tr>
+<td>Phone</td>
+<td><%=@depart.phone_number%><br></td></tr>
+<tr>
+<td>Fax</td>
+<td><%=@depart.fax%><br></td></tr><br><br>
+</table>
+<%end%>
+</center>
+
+
+
+							
+							</div>
+						
+					</div>
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+			<%= render :partial=>"/department/department"%>
+					
+					
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+
+
+ 

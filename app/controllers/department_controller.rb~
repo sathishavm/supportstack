@@ -1,0 +1,13 @@
+class DepartmentController < ApplicationController
+def new
+@depart=Department.new
+end
+def create
+@depart=Department.new
+p params[:name]
+p params[:depart]
+p 111111111111111
+p @depart
+#Department.create(params[:department])
+end
+end

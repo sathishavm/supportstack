@@ -1,0 +1,14 @@
+<table>
+<tr>
+<th id="table1">
+Template
+</th>
+</tr>
+<tr>
+<td  id="table2"><%= link_to "Home" ,  "/user/home"%></td>
+</tr>
+<tr>
+<td id="table2"><%= link_to "View Questions" ,  "/faq/new"%></td>
+</tr>
+
+</table>

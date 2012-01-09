@@ -1,0 +1,15 @@
+class AttachmentTable < ActiveRecord::Migration
+  def up
+create_table :attachments do |t|
+	t.string :name
+	t.string :attachable_type
+	t.integer:attachable_id
+	t.string :content_type
+	t.string :file_size
+      t.timestamps
+  end
+end
+
+  def down
+  end
+end

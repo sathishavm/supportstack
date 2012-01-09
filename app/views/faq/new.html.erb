@@ -1,0 +1,61 @@
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+					<div id="posts">
+					<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% end %>
+	</div>
+						<h2>Post your FAQ.</h2> 
+                    
+ <h1 id="t1">                       
+You can post your questions and the comments of the corresponding comments of each questions.</h1><br>
+
+					  <div id="m2">
+						
+<center><%= form_for @faq,:remote => true,:url=>{:action=>'create'} do |f|%>
+<table align="center">
+<tr>
+<th>Post Your Questions Here</th><th>Post</th>
+</tr>
+<tr>
+<td><%=f.text_area:question,:rows=>3.5, :cols=>50%><br><%=@error[:question] if @error && @error[:question]%></td>
+
+<td><%=f.submit "post"%></tr></td></table>
+<%end%>
+</center>
+<br><br><br>
+
+<br><br><br>		
+
+
+
+<div id="comments">
+							<%=render :partial => "faq/display", :locals => { :view => @view }%>
+							</div>
+						
+						</div>
+						
+					</div>
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+		<%= render :partial=>"/faq/show"%>
+					
+					
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+
+
+ 

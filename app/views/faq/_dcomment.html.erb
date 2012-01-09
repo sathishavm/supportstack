@@ -1,0 +1,19 @@
+<center>
+<h5>Previous Comments.</h5>
+			<table align="center">
+			<tr><th>Comments</th>
+			<% if(current_user && (current_user.id==1))%>
+			<th></th>
+			<%end%>
+			</tr>
+			<%@view.each do |q|%>		
+<tr>
+<td width="400px"><%=q.comment%></td>
+<% if(current_user && (current_user.id==1))%>
+<td><%= link_to "Delete" , "/faq/destroy/#{q.id}",:remote => true,:method=>'delete' %></td>
+<% end %>
+</tr>
+<%end%>
+</table>
+<%= will_paginate @view %>
+</center>

@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css"">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
+<script>
+     $(function() {
+             $( ".datepick" ).datepicker();
+     });
+</script>
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+					<div id="posts">
+					<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% end %>
+	</div>
+						<h2>Create News.</h2> 
+                    
+ <h1 id="t1">                       
+Please enter the following details about the news and when & where it would be conducting.</h1><br>
+					  <div id="m2">
+						
+<center><%= form_for @news, :url=>{:action=>'create'} do |f|%>
+<table align="center">
+<tr>
+<th>Column</th>
+<th>News Details</th>
+</tr>
+<tr>
+<td>
+Subject&nbsp;&nbsp;&nbsp;</td>
+<td><%=f.text_field:subject%><br><%=@error[:subject] if @error && @error[:subject]%></td></tr>
+<tr>
+<td>Description</td>
+<td><%=f.text_area:description%><br><%=@error[:description] if @error && @error[:description]%></td></tr>
+<tr>
+<td>Place</td>
+<td><%=f.text_field:place%><br><%=@error[:place] if @error && @error[:place]%></td></tr>
+<tr>
+<td>Date of Event</td>
+<td><%=f.text_field:date, :class=>"datepick" %><br><%=@error[:date] if @error && @error[:date]%></td></tr>
+<br><br>
+<tr><td></td><td><%=f.submit%></td></tr></table>
+<%end%>
+</center>
+
+
+
+							
+							</div>
+						
+					</div>
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+		<%= render :partial=>"/news/news"%>
+					
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+
+
+
+
+ 

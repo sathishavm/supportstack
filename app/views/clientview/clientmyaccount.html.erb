@@ -1,0 +1,90 @@
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+				
+					<div id="posts">
+					<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% end %>
+	</div>
+						<h2>Client-My Account.</h2> 
+                    
+ <h1 id="t1">                       
+The following are your account details in our company,Please verify it and for changes contact our sit administrator.</h1><br>
+					  <div id="m2">
+						
+<center><%= form_for @account, :url=>{} do |f|%>
+<table align="center">
+<tr><th>Column</th>
+<th>Detailed Value</th></tr>
+<tr>
+<td>
+Name&nbsp;&nbsp;&nbsp;</td>
+<td><%=f.text_field:fullname ,:disabled=>"true"%></td></tr>
+<tr>
+<td>Email</td>
+<td><%=f.text_field:email,:disabled=>"true"%><br></td></tr>
+<tr>
+<td>User Name</td>
+<td><%=f.text_field:username,:disabled=>"true"%><br></td></tr>
+<tr>
+	<%=form_for @clienttable, :url=>{} do |m|%>
+<td>Address 1</td>
+<td><%=m.text_field:address_1,:disabled=>"true"%><br></td></tr>
+<tr>
+<td>Address 2</td>
+<td><%=m.text_field:address_2,:disabled=>"true"%></td></tr>
+<tr>
+<td>City</td>
+<td><%=m.text_field:city,:disabled=>"true"%></td></tr>
+<tr>
+<td>State</td>
+<td><%=m.text_field:state,:disabled=>"true"%></td></tr>
+<tr>
+<td>Country</td>
+<td><%=m.text_field:country,:disabled=>"true"%></td></tr>
+<tr>
+<td>Phone 1</td>
+<td><%=m.text_field:phone_1,:disabled=>"true"%></td></tr>
+<tr>
+<td>Phone 2</td>
+<td><%=m.text_field:phone_2,:disabled=>"true"%></td></tr>
+<tr>
+<td>Fax</td>
+<td><%=m.text_field:fax,:disabled=>"true"%></td></tr>
+<tr>
+<td>Created At</td>
+<td><%=m.text_field:created_at,:disabled=>"true"%></td></tr>
+</table><br><br>
+<%end%>
+<%end%>
+</center>
+
+
+
+							
+							</div>
+						
+					</div>
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+			<%= render :partial=>"/clientview/client"%>
+					
+					
+					<div class="inner_copy"><a href=""> </a><a href=""></a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+
+
+ 

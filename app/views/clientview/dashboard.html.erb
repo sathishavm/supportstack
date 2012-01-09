@@ -1,0 +1,60 @@
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+					<div id="posts">
+					<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% end %>
+	</div>
+						<h2>Client-My Account.</h2> 
+                    
+ <h1 id="t1">                       
+Welcome to your Client Area. The Client Area allows you to view and update the details we hold about you, Submit Support Tickets and View the Tickets you already submitted...</h1><br>
+					 
+										  <div id="m3">
+						 <div id="posts1">
+						 <br>
+<h1 id="j1">
+Ticket</h1>
+Total No of Pending Tickets -:  &nbsp; &nbsp; &nbsp;  <%=@pendingticket%>
+<br>
+<br>
+<br>
+</div>
+			 <div id="posts1">
+						 <br>
+<h1 id="j1">
+Ticket</h1>
+Total No of Completed Tickets -:  &nbsp; &nbsp; &nbsp;   <%=@completedticket%>
+<br>
+<br>
+<br>
+</div>
+
+									</div>
+				
+					 <div id="m1">&nbsp;<br><br></div>
+					</div>
+					
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+			
+						<%= render :partial=>"/clientview/client"%>
+					
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+
+
+ 

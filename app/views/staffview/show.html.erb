@@ -1,0 +1,112 @@
+
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+					<div id="posts">
+					<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% end %>
+	</div>
+						<h2>Staff -Particular Tickets Details.</h2> 
+                    
+ <h1 id="t1">                       
+The following details are about particular Ticket,That is posted by you in the Support Stack application.</h1><br>
+					  <div id="m2">
+						
+<center>
+<table align="center">
+<tr>
+						<th>Column</th>
+						<th>Detailed View</th>
+						</tr>
+<tr>
+<td>
+ID:&nbsp;&nbsp;&nbsp;</td>
+<td><%=@ticketall.id %></td></tr>
+<tr>
+<td>
+
+Client:&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+<td><%=@ticketall.submitedby %></td>
+</tr>
+<tr>
+<td>Date</td>
+<td><%=@ticketall.created_at%></td>
+</tr>
+<tr>
+<td>Priority</td>
+<td><%=@ticketall.priority%><br></td></tr>
+<tr>
+<tr>
+<td>Department</td>
+<td><%=@ticketall.department.name%><br></td></tr>
+<tr>
+</table><br></center>
+
+<div id="k1">
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Subject</b> &nbsp; -   &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;  <%=@ticketall.subject%></div>
+<div id="cc">
+<h3>Description:</h3>
+ <p><%=@ticketall.description%></p>
+</div>
+<div><br><br><br><br><br><br>
+</div>
+
+Conversation:
+<br><br>
+<%@comments.each do |r|%> 
+<div id="d1">
+&nbsp;&nbsp;&nbsp;&nbsp;Author&nbsp; </div>
+<div id="d2"> <center>Content</center></div>
+
+<div id="c1">
+<% @user.each do |m|%>
+<% if m.id==r.user_id%>
+<%=m.fullname%>
+<%end%>
+<%end%><br><br>
+<%=r.title%><br><br>
+<%if (current_user.id==r.user_id)%>
+<%= link_to "Delete" ,  "/staffview/destroy1/#{r.id}",:method=>'destroy1' %>
+<%end%>
+</div>
+
+<div id="c2">
+ <p><%=r.comment%></p>
+</div>
+<div><br><br><br><br><br>
+<br><br>
+</div>
+<%end%>
+<br>
+
+							
+							</div>
+						
+					</div>
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+			<%= render :partial=>"/staffview/ticket"%>
+					
+					
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+
+
+ 

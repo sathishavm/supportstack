@@ -1,0 +1,15 @@
+class DepartmentTable < ActiveRecord::Migration
+  def up
+create_table :departments do |t|
+	t.string :name
+	t.string :description
+	t.string :email_id
+	t.string :phone_number
+	t.string :fax
+      t.timestamps
+  end
+end
+
+  def down
+  end
+end

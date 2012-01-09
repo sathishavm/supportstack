@@ -1,0 +1,6 @@
+class Department < ActiveRecord::Base
+	has_many :staff_admins
+	has_many :tickets
+validates :name, :presence => true ,:uniqueness => true,  :message => 'Name cannot be blank,Please Enter Name'
+validates :email_id, :presence => true, :email => true,:uniqueness => true
+end

@@ -1,0 +1,115 @@
+
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+					<div id="posts">
+					<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% end %>
+	</div>
+						<h2>Staff - Tickets Details.</h2> 
+                    
+ <h1 id="t1">                       
+The following details are about particular Ticket,That is assigned to you where you supposed to take care.</h1><br>
+					  <div id="m2">
+						
+<center>
+<table align="center">
+<tr>
+<th>Column</th>
+<th>Detailed Value</th>
+</tr>
+<tr>
+<td>
+ID:&nbsp;&nbsp;&nbsp;</td>
+<td><%=@ticket_detail.id %></td></tr>
+<tr>
+<td>
+
+Client:&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+<td><%=@ticket_detail.submitedby %></td>
+</tr>
+<tr>
+<td>Date</td>
+<td><%=@ticket_detail.created_at%></td>
+</tr>
+<tr>
+<td>Priority</td>
+<td><%=@ticket_detail.priority%><br></td></tr>
+<tr>
+<tr>
+<td>Department</td>
+<td><%=@ticket_detail.department.name%><br></td></tr>
+<tr>
+</table></center><br><br>
+<div id="k1">
+&nbsp;&nbsp;&nbsp;&nbsp;Subject &nbsp; -   &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;  <%=@ticket_detail.subject%></div>
+<div id="cc">
+<h3>Description:</h3>
+ <p><%=@ticket_detail.description%></p>
+</div>
+<div><br><br><br><br><br><br>
+</div>
+<center>
+<table>
+
+<tr>
+<th></th>
+<th>
+
+Reply To Ticket:
+</th>
+</tr>
+<%= form_for @ticketcomment, :url=>{:action=>'save',:id=>"#{@ticket_detail.id}"} do |f|%>
+<tr>
+<td>
+<br>
+Comment:
+</td>
+<td>
+<br>
+<%= f.text_area :comment %>
+<br><%=@error[:comment] if @error && @error[:comment]%>
+</td>
+</tr>
+
+<tr><td></td>
+<td>
+<%=f.submit "Complete Ticket"%></td>
+</table>
+</center>
+
+<%end%>
+
+
+
+							
+							</div>
+						
+					</div>
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+				<%= render :partial=>"/staffview/staff"%>
+					
+					
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+
+
+ 

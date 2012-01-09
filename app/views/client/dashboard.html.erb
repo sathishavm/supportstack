@@ -1,0 +1,79 @@
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+					<div id="posts">
+					<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% end %>
+	</div>
+						<h2>Admin-Client Details.</h2> 
+                    
+ <h1 id="t1">                       
+The following details are all about the clients of Support Stack application where you can modify or delete clients.</h1><br>
+					  <div id="m2">
+						  <% if(@ticket.empty?)%>
+				<center><h1>	 oops! No Record Found</h1></center>
+				<%else%>
+						<table border="0" >
+						<tr>
+						<th id="k1">#</th>
+						<th id="k1">ID</th>
+						<th id="k1">Date</th>
+						<th id="k1">Name</th>
+						<th id="k1">Email</th>
+						<th id="k1">Delete</th>
+						</tr>
+						<%@a=1%>
+
+<% @ticket.each do |f|%>
+<%if @a%2==0 %>
+<tr>
+<td  id="k2"><%= @a%></td>
+<td id="k2"><%= f.id%></td>
+<td id="k2"><%= (f.created_at).strftime("%d-%m-%y")%></td>
+<td id="k21"><%= link_to "#{f.user.fullname}" ,  "/client/show/#{f.id}",:method=>'show' %></td>
+<td id="k22"><%= f.user.email%></td>
+<td id="k2"><%= link_to "Delete" ,  "/client/destroy/#{f.id}",:method=>'delete' %></td>
+</tr>
+<%else%>
+<tr>
+<td id="o1"><%= @a%></td>
+<td id="o1"><%= f.id%></td>
+<td id="o1"><%= (f.created_at).strftime("%d-%m-%y")%></td>
+<td id="o11"><%= link_to "#{f.user.fullname}" ,  "/client/show/#{f.id}",:method=>'show' %></td>
+<td id="o12"><%= f.user.email%></td>
+<td id="o1"><%= link_to "Delete" ,  "/client/destroy/#{f.id}",:method=>'delete' %></td>
+</tr>
+<%end%>
+<%@a=@a+1%>
+<%end%>
+
+</table>
+
+<%= will_paginate @ticket %>
+<%end%>
+							
+							</div>
+						
+					</div>
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+			
+					<%= render :partial=>"/client/client"%>
+					
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+
+
+ 
