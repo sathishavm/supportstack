@@ -1,8 +1,4 @@
 class Devise::SessionsController < ApplicationController
-  
-   
-
-
   prepend_before_filter :require_no_authentication, :only => [ :new, :create ]
   prepend_before_filter :allow_params_authentication!, :only => :create
   include Devise::Controllers::InternalHelpers
@@ -12,7 +8,6 @@ class Devise::SessionsController < ApplicationController
     resource = build_resource
     clean_up_passwords(resource)
     respond_with_navigational(resource, stub_options(resource)){ render_with_scope :new }
-
   end
 
   # POST /resource/sign_in
