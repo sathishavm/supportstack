@@ -98,10 +98,11 @@ Please select your type from the options below to learn more about the support o
 					<ul id="categories">
 					<marquee onmouseout="this.start();" scrollamount="2" onmouseover="this.stop();" direction="up">
 						<%@newsdetails=(News.find(:all,:limit=>6,:order=>"created_at desc"))%>
+						<%if(!@newsdetails.empty?)%>
 					<%@newsdetails.each do |q|%>
 						<li><a href="javascript: ss('/news/show/<%= q.id%>')"><%=q.subject%>..</a></li><br>
 						<%end%>
-						
+						<%end%>
 						</marquee>
 					</ul>
 					<center><h2>Frequently asked Question</h2><br>

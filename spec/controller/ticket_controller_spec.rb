@@ -1,15 +1,19 @@
 require 'spec_helper'
 
-describe TicketController do
+describe TicketController, :type => :controller do
 	
 	 before(:each) do
-    @current_user = mock_model(User, :id => 1,:role=>"admin")
+    @current = mock_model(User, :id => 1,:role=>"admin")
   end
 	
 		describe "new" do
     it "should be successful" do
- get "new"
-				@ticket=Ticket.new
+ get :new
+ #~ puts " ##################################### "
+				#~ @ticket=Ticket.new
+				#~ puts @ticket.inspect
+				#~ puts "***********************************"
+				response.should_be successful
 	  end
 	end
 	
