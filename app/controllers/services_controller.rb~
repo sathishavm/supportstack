@@ -1,0 +1,44 @@
+class ServicesController < ApplicationController
+ before_filter :authenticate_user!, :except => [:create]
+
+def index
+  @services = current_user.services.all
+end
+
+def create
+    params[:service] ? service_route = params[:service] :service_route = 'no service (invalid callback)'
+    p service_route
+p params[:service]
+    omniauth = request.env['omniauth.auth']
+      redirect_to "/dashboard/dashboard"
+  if omniauth and params[:service]
+ 
+     if service_route == 'facebook'
+       p omniauth['info']['first_name']
+       omniauth['info']['email'] ? email =  omniauth ['info']['email'] : email = ''
+       omniauth['info']['name'] ? name =  omniauth['info']['name'] : name = ''
+     # omniauth['info']['first_name'] ? firstname =  omniauth['info']['first_name'] : first_name = ''
+    #   omniauth['info']['last_name'] ? lastname =  omniauth['info']['last_name'] : last_name = ''
+       omniauth['uid'] ?  uid =  omniauth ['uid'] : uid = ''
+       omniauth['provider'] ? provider =  omniauth['provider'] : provider = ''
+        else
+      render :text => omniauth.to_yaml
+      #return
+        end
+        auth = Service.find_by_provider_and_uid(provider, uid)     
+        if !auth
+          user = User.new :email => email, :password => SecureRandom.hex(10)
+          user.services.build(:provider => provider, :uid => uid, :uname => name, :uemail => email)
+          user.skip_confirmation!
+          user.save!(:validate=>false)
+          user.confirm!
+          redirect_to "/dashboard/dashboard"
+        else
+          flash[:notice] = service_route.capitalize + ' is already linked to your account.'
+          session[:service]=auth
+          redirect_to home_path
+        end 
+  end
+end
+end
+

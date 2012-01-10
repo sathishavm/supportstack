@@ -24,3 +24,11 @@ Factory.define :department do |a|
 	a.email_id"friends@gmail.com"
 	a.phone_number "9003375353"
 end
+
+Factory.define :news do |a|
+	a.id "2"
+	a.subject "hai"
+	a.description "This is for hai"
+	a.place"chennai"
+	a.date "21-01-1990"
+end
