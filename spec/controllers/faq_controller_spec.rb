@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe TicketController, :type => :controller do
+describe FaqController, :type => :controller do
 	include Devise::TestHelpers
 
 	def mock_user(stubs={})
@@ -23,11 +23,11 @@ describe TicketController, :type => :controller do
 	describe "create" do
     it "should be successful" do
       get :create
-			params=Factory.attributes_for(:ticket)
-			@partner=Ticket.new(params)
+			params=Factory.attributes_for(:faq)
+			@partner=Faq.new(params)
 			if @partner.valid?
 			@partner.save
-          response.should be_success
+         response.should render_template("new")
 		else
 					response.should render_template("new")
 		end	

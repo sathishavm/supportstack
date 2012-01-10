@@ -19,11 +19,11 @@ class FaqController < ApplicationController
        format.js
         end
 	#	redirect_to "/faq/new"
-         #else
-		 #@error=@faq.errors.messages
-    #@faq=Faq.new
-		#@view=Faq.paginate(:page => params[:page], :per_page => 6)
-		 #render:new
+         else
+		 @error=@faq.errors.messages
+    @faq=Faq.new
+		@view=Faq.paginate(:page => params[:page], :per_page => 6)
+		 render:new
 		 end
 end
 def comments

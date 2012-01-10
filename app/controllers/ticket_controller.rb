@@ -1,6 +1,6 @@
 class TicketController < ApplicationController
 	before_filter :authenticate_user!
-	before_filter :verify_admin
+before_filter :verify_admin
 	layout "admin"
 	def new
 	@ticket=Ticket.new
@@ -17,7 +17,7 @@ end
 		@ticket_detail.save
 		redirect_to "/ticket/open_ticket"
          else
-					 @ticket_detail.validate
+
 		 @error=@ticket_detail.errors.messages
 		 @ticket=@ticket_detail
 		 render:new
