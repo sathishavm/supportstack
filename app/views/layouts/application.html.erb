@@ -45,6 +45,31 @@ window.open("/ticket.html","mywindow","menubar=1,resizable=1,width=350,height=25
 <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share"
        type="text/javascript">
 </script>
+
+ <script src="http://maps.google.com/maps?file=api&v=1
+
+            &key=BQIAAAA1-9mtMJjT-tXKvkObX4zyhTwX337dVLOjxE1zJMKoSR6I0CshhThhk_4XGclriy7RmWdhE0bhno0Zw" type="text/javascript"> </script>
+						<script>
+  jQuery(document).ready(function(){
+
+    //<![CDATA[
+
+    var map = new GMap(document.getElementById("map"));
+ var center = new GLatLng(13.05731, 80.26030);
+        map.setCenter(center, 15);
+ var marker = new GMarker(center, {draggable: false});
+ map.addOverlay(marker);
+
+
+    //~ map.centerAndZoom(new GPoint(13.05387, 80.26407), 15);
+
+    
+
+    //]]>
+ }
+  );
+</script>
+
 </head>
 <body>
 
@@ -81,10 +106,12 @@ window.open("/ticket.html","mywindow","menubar=1,resizable=1,width=350,height=25
 					<li><a href="/dashboard/new">Home</a></li>
 					<li>|<a href="/ticket/dashboard">Ticket</a></li>
 					<li>|<a href="/department/dashboard">Department</a></li>
+					<li>|<a href="/faq/help">Help</a></li>
 				</ul>
 			</div>
 			<div class="copyright">
 				Copyright &copy; All rights reserved by <a href="" target="_blank" title="Support Stack">Support Stack</a>
+				
 			</div>
 		</div>
 	</div>
