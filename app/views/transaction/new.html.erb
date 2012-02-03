@@ -1,0 +1,108 @@
+
+<div id="content">
+			<div id="wrapper">
+				<div id="main">
+					<div id="posts">
+								<div id="users">
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% end %>
+	</div>
+						<h2>Create Ticket.</h2> 
+                    
+ <h1 id="t1">                       
+Please enter the following Transaction details,to create a new Transaction in your Support Stack application.</h1><br>
+					  <div id="m2">
+						
+<center><font color="red"><%=flash[:notice]%></font>
+<%= form_for(:transactions ,:url=>{:action=>'create'}) do |f|%>
+<table width="100%">
+<tr>
+<th>Details</th>
+<th>Information</th></tr>
+<tr><td width="80%">
+Card Holder First Name*</td><td>
+<%=f.text_field:first_name %></td></tr>
+<tr><td>
+Card Holder Last Name</td><td>
+<%=f.text_field:last_name %></td></tr>
+<tr><td>
+Type of Card*</td><td>
+<%= f.select:type, Transaction::TYPE %></td></tr>
+<tr><td>
+<%#val=amount_check(params[:cost][:content_type])%>
+<%#=content=params[:cost][:content_type]%>
+<%#=content%>
+<input type="hidden" value=<%#=content%> name="id"/>
+Amount($)</td><td>
+<%=f.text_field:amount%></td></tr>
+<tr><td>
+Card number</td><td>
+<%=f.text_field:number %></td></tr>
+<tr><td>
+Expire Date</td><td><%= f.date_select :year,:start_year => 1990,:end_year => 2020,:prompt => :'select',:order =>[:year] %>
+<%= f.date_select :year,:start_year => 1990,:end_year => 2020,:prompt => :'select',:order =>[:month] %></td></tr>
+
+<tr><td >
+Card security code (CVV)*</td><td>
+<%=f.text_field:verification_value%></td></tr>
+<tr><td colspan="2"><center><img src="/assets/card.jpeg"></img></center></td></tr>
+<tr><td colspan="2"><center>
+<%= f.submit"pay"%></center></td></tr></table>
+
+<% end %>
+
+							
+							</div>
+						
+					</div>
+				</div>
+				<div id="sidebar1">
+					<img src="/images/sidebar_top1.jpg" alt="setalpm" width="333" height="45" class="quote" /><br />
+			<%= render :partial=>"/ticket/ticket"%>
+					
+					
+					<div class="inner_copy"><a href="http://www.greatdirectories.org/categories/travel-directories/">travel directories</a><a href="http://www.grungemagazine.com/">grunge</a></div>
+					<ul id="photos">
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+<script>
+var f1 = new LiveValidation('transactions_first_name');
+f1.add( Validate.Presence );
+
+var f3 = new LiveValidation('transactions_number');
+f3.add( Validate.Presence );
+f3.add( Validate.Numericality );
+f3.add( Validate.Length, { is: 16 } );
+
+var f12 = new LiveValidation('transactions_verification_value');
+f12.add( Validate.Presence );
+f12.add( Validate.Numericality );
+f12.add( Validate.Length, { is: 3 } );
+
+
+
+</script>
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+

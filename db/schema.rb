@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106121519) do
+ActiveRecord::Schema.define(:version => 20120131064412) do
 
   create_table "attachments", :force => true do |t|
     t.string   "attachable_type"
@@ -105,6 +105,21 @@ ActiveRecord::Schema.define(:version => 20120106121519) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "submitedby"
+  end
+
+  create_table "transactions", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "month"
+    t.date     "year"
+    t.integer  "verification_value"
+    t.string   "type"
+    t.float    "amount"
+    t.boolean  "status"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "number"
   end
 
   create_table "users", :force => true do |t|

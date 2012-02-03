@@ -4,6 +4,10 @@ ProjectApp::Application.routes.draw do
 
   root :to => "user#home"
 resources :tickets
+
+match '/dfeed' => 'faq#feed',
+      :as => :feed,
+      :defaults => { :format => 'atom' }
   #match 'ticket/new'=>'ticket#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.

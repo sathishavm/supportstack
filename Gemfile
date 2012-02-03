@@ -10,9 +10,11 @@ gem 'mail'
 gem "capybara"
 gem 'rspec'
 gem "pg"
+gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'rspec-rails'
 gem "shoulda"
 gem 'therubyracer'
+gem 'activemerchant'
 gem 'devise'
 gem 'factory_girl_rails'
 gem 'will_paginate', '~> 3.0'

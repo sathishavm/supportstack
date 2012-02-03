@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_one :staff_admin, :dependent => :destroy
   has_many :tickets ,:dependent => :destroy
   has_many :news,:dependent => :destroy
-  
+  has_many :transaction,:dependent => :destroy
   validates :fullname, :presence => true
   validates :username, :presence => true
 end

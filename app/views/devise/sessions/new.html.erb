@@ -62,7 +62,7 @@ Please select your type from the options below to learn more about the support o
 						</div></div>
 						<div class="inner_copy"><a href="http://www.bestfreetemplates.org/">free templates</a><a href="http://www.bannermoz.com/">banner templates</a></div>
 						<div id="pager">
-								<iframe src="http://www.facebook.com/plugins/like.php?href=http://rftechbud09.heroku.com/users/sign_in"scrolling="no" frameborder="0"></iframe>
+								<iframe src="https://www.facebook.com/plugins/like.php?href=http://rftechbud09.heroku.com/users/sign_in"scrolling="no" frameborder="0"></iframe>
 							
 						</div>
 											
@@ -71,7 +71,7 @@ Please select your type from the options below to learn more about the support o
 				<div id="sidebar">
 					<img src="/images/sidebar_top.jpg" alt="setalpm" width="333" height="325" class="quote" /><br />
 										<a name="fb_share" type="icon_link"
-  share_url="http://www.facebook.com/pages/Support-Stack-Case-Study/290403327673612?sk=info">Facebook Share</a>
+  share_url="https://www.facebook.com/pages/Support-Stack-Case-Study/290403327673612?sk=info">Facebook Share</a>
 					<div class="about">
 						<h1>ACCOUNT-SIGN IN</h1>
 						<br>
@@ -88,18 +88,25 @@ Please select your type from the options below to learn more about the support o
   <% if devise_mapping.rememberable? -%>
     <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
   <% end -%>
+	<%= render :partial => "devise/shared/links" %>
+	<br>
+<div id="captcha">
+<%= recaptcha_tags %>
+</div>
+
+<br>
 
   <center><%= f.submit "Sign in" %></center>
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+
             
 
 					</div>
 					
 					<h1>News</h1>
 					<ul id="categories">
-					<marquee onmouseout="this.start();" scrollamount="2" onmouseover="this.stop();" direction="up">
+					<marquee onmouseout="this.start();" scrollamount="2" onmouseover="this.stop();" direction="up" >
 						<%@newsdetails=(News.find(:all,:limit=>6,:order=>"created_at desc"))%>
 						<%if(!@newsdetails.empty?)%>
 					<%@newsdetails.each do |q|%>
@@ -109,7 +116,7 @@ Please select your type from the options below to learn more about the support o
 						</marquee>
 					</ul>
 					<center><h2>Frequently asked Question</h2><br>
-					<a href="/faq/new"><img src="/images/c.gif" alt="" width="90" height="90" /></a><center>
+					<a href="/faq/new"><img src="/images/c.gif" alt="" width="50" height="50" /></a><center>
 					<br><br>
 				</div>
 			</div>

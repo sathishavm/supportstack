@@ -76,7 +76,7 @@ top:65px;
 right:5px;
 / right:78px;
 }
-	
+
 #header .social a{
 display:inline;
 margin:0 0 0 4px;
@@ -163,6 +163,8 @@ color:#84919E;
 font-weight:normal;
 width:582px;
 }
+
+
 #main1 p{
 display:block;
 padding:20px 20px 15px 30px;
@@ -451,7 +453,15 @@ padding:10px 0 25px 99px;
 	display:none;
 	color:#ACCAE7;
 }
+#captcha
+{
+	width:270px;
 
+overflow:scroll;
+border-color:Silver;
+border-style:Double;
+background-color:Lime;
+}
 #p6
 {
 	
@@ -576,7 +586,7 @@ float:left;
 padding:15px 0 10px 0;
 }
 #categories{
-padding:10px 0 50px 0;
+padding:10px 0 10px 0;
 }
 #categories li{
 list-style-type:none;

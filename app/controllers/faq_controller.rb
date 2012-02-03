@@ -81,8 +81,24 @@ respond_to do |format|
 		p format
        format.js
         end
-end
-				end
+			end
+		end
+		def feed
+  # this will be the name of the feed displayed on the feed reader
+  @title = "Support Stack"
+
+  @news_items = Faq.order("updated_at desc")
+
+  # this will be our Feed's update timestamp
+  #@updated = @news_items.first.updated_at unless @news_items.empty?
+
+  respond_to do |format|
+    format.atom 
+
+    # we want the RSS feed to redirect permanently to the ATOM feed
+    #format.rss { redirect_to feed_path(:format => :atom), :status => :moved_permanently }
+  end
+		end
 				def verify_admin
 		if ((current_user)&&(current_user.role.name=="admin"))
 		  return "admin"
